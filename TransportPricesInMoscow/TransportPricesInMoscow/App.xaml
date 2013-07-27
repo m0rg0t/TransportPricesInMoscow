@@ -1,0 +1,25 @@
+﻿<Application
+    x:Class="TransportPricesInMoscow.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TransportPricesInMoscow"
+    RequestedTheme="Light"
+    xmlns:localData="using:TransportPricesInMoscow.Data">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- 
+                    Стили, определяющие общие особенности внешнего вида и функциональности платформы
+                    Требуются для шаблонов элементов и проекта Visual Studio
+                 -->
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Ресурсы, зависящие от приложения -->
+
+            <x:String x:Key="AppName">Цены на общественный транспорт Москвы</x:String>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

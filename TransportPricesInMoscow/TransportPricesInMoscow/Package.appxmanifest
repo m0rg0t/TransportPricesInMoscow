@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="dd15c575-c72c-4c37-b01b-2b34838084af" Publisher="CN=m0rg0_000" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>TransportPricesInMoscow</DisplayName>
+    <PublisherDisplayName>m0rg0_000</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="TransportPricesInMoscow.App">
+      <VisualElements DisplayName="Цены на общественный транспорт Москвы" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Цены на общественный транспорт Москвы" ForegroundText="light" BackgroundColor="#464646">
+        <DefaultTile ShowName="allLogos" ShortName="Транспортные цены" />
+        <SplashScreen Image="Assets\SplashScreen.png" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
