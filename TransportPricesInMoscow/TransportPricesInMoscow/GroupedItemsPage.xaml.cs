@@ -13,6 +13,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ApplicationSettings;
+using TransportPricesInMoscow.Controls;
+using Callisto.Controls;
 
 // Шаблон элемента страницы сгруппированных элементов задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234231
 
@@ -59,6 +62,47 @@ namespace TransportPricesInMoscow
             this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            SettingsPane.GetForCurrentView().CommandsRequested -= Settings_CommandsRequested;
+            base.OnNavigatedFrom(e);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            SettingsPane.GetForCurrentView().CommandsRequested += Settings_CommandsRequested;
+            base.OnNavigatedTo(e);
+        }
+
+        void Settings_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            try
+            {
+                var viewAboutPage = new SettingsCommand("", "Об авторе", cmd =>
+                {
+                    //(Window.Current.Content as Frame).Navigate(typeof(AboutPage));
+                    var settingsFlyout = new SettingsFlyout();
+                    settingsFlyout.Content = new About();
+                    settingsFlyout.HeaderText = "Об авторе";
+
+                    settingsFlyout.IsOpen = true;
+                });
+                args.Request.ApplicationCommands.Add(viewAboutPage);
+
+                var privacypolicy = new SettingsCommand("", "Политика конфиденциальности", cmd =>
+                {
+                    var settingsFlyout = new SettingsFlyout();
+                    settingsFlyout.Content = new Privacy();
+                    settingsFlyout.HeaderText = "Политика конфиденциальности";
+
+                    settingsFlyout.IsOpen = true;
+                });
+                args.Request.ApplicationCommands.Add(privacypolicy);
+
+            }
+            catch { };
+        }
+
         /// <summary>
         /// Вызывается при нажатии элемента внутри группы.
         /// </summary>
@@ -69,8 +113,9 @@ namespace TransportPricesInMoscow
         {
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            
+            //var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
     }
 }

@@ -226,7 +226,7 @@ namespace TransportPricesInMoscow.Data
     /// </summary>
     public sealed class SampleDataSource
     {
-        private static SampleDataSource _sampleDataSource = new SampleDataSource();
+        public static SampleDataSource _sampleDataSource = new SampleDataSource();
 
         private ObservableCollection<SampleDataGroup> _allGroups = new ObservableCollection<SampleDataGroup>();
         public ObservableCollection<SampleDataGroup> AllGroups
@@ -264,34 +264,65 @@ namespace TransportPricesInMoscow.Data
             return await response.Content.ReadAsStringAsync();
         }
 
+        public string TruncateLongString(string str, int maxLength)
+        {
+            if (str.Length > maxLength)
+            {
+                return str.Substring(0, Math.Min(str.Length, maxLength))+"...";
+            }
+            else
+            {
+                return str.Substring(0, Math.Min(str.Length, maxLength));
+            }            
+        }
+
         public async void LoadTicketData()
         {
-            var responseText = await MakeWebRequest("http://api.pub.emp.msk.ru:8081/json/v10.0/transport/tickets/getallprices?token=" + App.TOKEN);
+
+            var responseText = await MakeWebRequest("http://api.pub.emp.msk.ru:8081/json/v10.0/transport/tickets/getallprices?token="+App.TOKEN+"&query=test"); //" + App.TOKEN);
             try
             {
                 JObject o = JObject.Parse(responseText.ToString());
+                //SampleDataSource._sampleDataSource = new ObservableCollection<SampleDataGroup>();
 
                 int count = 1;
                 foreach (var item in o["result"])
                 {
+                    string shorttitle = item["name"].ToString();
+                    var title_split = shorttitle.Split('-');
+                    shorttitle = title_split[0].Trim();
+                    shorttitle = TruncateLongString(shorttitle, 36);
+                    string image = "Assets/LightGray.png";
+                    if (shorttitle == "Универсальные проездные билеты")
+                    {
+                        image = "Assets/cards1.png";
+                    }
+                    else
+                    {
+                    };
+
                     var group1 = new SampleDataGroup("Group-" + count.ToString(),
                     item["name"].ToString(),
-                    "Group Subtitle: 1",
+                    shorttitle,
                     "Assets/DarkGray.png",
-                    "description");
+                    item["name"].ToString());
                     count++;
 
                     var ticket_count = 1;
                     foreach (var ticket in item["objects"])
                     {
-                        group1.Items.Add(new SampleDataItem("Group-" + count.ToString() + "-Item-" + ticket_count.ToString(),
-                        ticket["ticket_name"].ToString(),
-                        ticket["ticket_price"].ToString(),
-                        "Assets/LightGray.png",
-                        "",
-                        "",
-                        group1));
-                        ticket_count++;
+                        try
+                        {
+                            group1.Items.Add(new SampleDataItem("Group-" + count.ToString() + "-Item-" + ticket_count.ToString(),
+                            ticket["ticket_name"].ToString(),
+                            ticket["ticket_price"].ToString(),
+                            image,
+                            item["name"].ToString(),
+                            "",
+                            group1));
+                            ticket_count++;
+                        }
+                        catch { };
                     };
 
                     this.AllGroups.Add(group1);

@@ -35,7 +35,7 @@ namespace TransportPricesInMoscow
             this.Suspending += OnSuspending;
         }
 
-        public const string TOKEN = "7da46cccb17d11e2b27c08002779b117";
+        public const string TOKEN = "8a8e904ef86211e28889416c74617269";
 
         /// <summary>
         /// Вызывается при обычном запуске приложения пользователем.  Будут использоваться другие точки входа,

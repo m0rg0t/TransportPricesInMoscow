@@ -1654,6 +1654,20 @@
         </Grid>
     </DataTemplate>
 
+    <DataTemplate x:Key="Standard250x250PriceItemTemplate">
+        <Grid HorizontalAlignment="Left" Width="250" Height="250">
+            <Border Background="Gray"><!--{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}-->
+                <Image Source="{Binding Image}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Opacity="0.5"/>
+            </Border>
+            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                <TextBlock Text="{Binding Description}" MaxHeight="70" Foreground="White" Style="{StaticResource CaptionTextStyle}" TextWrapping="Wrap" Margin="15,0,15,10"/>
+                <TextBlock Text="{Binding Title}" MaxHeight="70" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Margin="15,0,15,0"/>
+                <TextBlock Foreground="White" Text="{Binding Subtitle}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+                <!--Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" -->
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
     <!-- Совместимый с сеткой шаблон элемента 500 на 130 пикселей, как на странице GroupDetailPage -->
     <DataTemplate x:Key="Standard500x130ItemTemplate">
         <Grid Height="110" Width="480" Margin="10">
@@ -1727,6 +1741,7 @@
             </StackPanel>
         </Grid>
     </DataTemplate>
+    
 
     <!-- Совместимый со списком шаблон элемента высотой 70 пикселей, как на странице SearchResultsPage в режиме с прикреплением -->
     <DataTemplate x:Key="StandardSmallIcon70ItemTemplate">
@@ -1750,7 +1765,7 @@
       Шаблон элемента 190 на 130 пикселей для отображения эскизов, как на странице FileOpenPickerPage
       Включает подробную всплывающую подсказку для отображения заголовка и текста описания
   -->
-    <DataTemplate x:Key="StandardFileWithTooltip190x130ItemTemplate">
+    <!--<DataTemplate x:Key="StandardFileWithTooltip190x130ItemTemplate">
         <Grid>
             <Grid Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
                 <Image
@@ -1794,7 +1809,7 @@
                 </ToolTip>
             </ToolTipService.ToolTip>
         </Grid>
-    </DataTemplate>
+    </DataTemplate>-->
 
     <!-- Стили ScrollViewer -->
 
