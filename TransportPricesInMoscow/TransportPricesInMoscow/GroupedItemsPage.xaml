@@ -36,12 +36,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <SemanticZoom Grid.RowSpan="2">
+            <SemanticZoom.ZoomedInView>
         <!-- Сетка с горизонтальной прокруткой используется в большинстве состояний представления -->
         <GridView
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
-            Grid.RowSpan="2"
+            
             Padding="116,137,40,46"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemTemplate="{StaticResource Standard250x250PriceItemTemplate}"
@@ -80,6 +82,41 @@
                 </GroupStyle>
             </GridView.GroupStyle>
         </GridView>
+
+            </SemanticZoom.ZoomedInView>
+            <!--ItemsSource="{Binding MainStatic.AllGroups, Source={StaticResource Locator}}"-->
+            <SemanticZoom.ZoomedOutView>
+                <GridView 
+                    x:Name="zommedOutView"
+                    Grid.RowSpan="2"                            
+                    Padding="116,137,40,46"
+                    SelectionMode="None">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid Margin="0,0,80,0" ItemWidth="400" ItemHeight="300" 
+                 MaximumRowsOrColumns="1" VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Right">
+                                <Border Background="Gray">
+                                    <Image Source="{Binding Group.Image}" Stretch="UniformToFill" 
+                                        AutomationProperties.Name="{Binding Group.Title}"/>
+                                </Border>
+                                <StackPanel Height="290" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}" 
+                                            
+                                            VerticalAlignment="Top">
+                                    <TextBlock Text="{Binding Group.Title}" Foreground="White"  
+                                        Height="300" MaxHeight="300" Margin="15,0,15,0" FontSize="30" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Grid>
+                            <!--<TextBlock Text="{Binding Title}" Style="{StaticResource HeaderTextStyle}" />-->
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
 
         <!-- Список с вертикальной прокруткой используется только в прикрепленном представлении -->
         <ListView
