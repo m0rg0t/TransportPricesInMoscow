@@ -12,7 +12,9 @@
     <DefaultLanguage>ru-RU</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>TransportPricesInMoscow_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>TransportPricesInMoscow_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>D43AB47E5F2F0FA86F13CEE34177B78E233E3C93</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -133,6 +135,7 @@
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
     <None Include="packages.config" />
+    <None Include="TransportPricesInMoscow_StoreKey.pfx" />
     <None Include="TransportPricesInMoscow_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +147,7 @@
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
+    <None Include="Package.StoreAssociation.xml" />
     <Page Include="Controls\About.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
