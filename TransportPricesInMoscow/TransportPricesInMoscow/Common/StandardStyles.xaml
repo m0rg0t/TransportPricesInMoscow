@@ -1662,7 +1662,9 @@
             <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
                 <TextBlock Text="{Binding Description}" MaxHeight="70" Foreground="White" Style="{StaticResource CaptionTextStyle}" TextWrapping="Wrap" Margin="15,0,15,10"/>
                 <TextBlock Text="{Binding Title}" MaxHeight="70" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Margin="15,0,15,0"/>
-                <TextBlock Foreground="White" Text="{Binding Subtitle}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+                <TextBlock Foreground="White" Text="{Binding Subtitle}" 
+                           Style="{StaticResource CaptionTextStyle}" 
+                           TextWrapping="NoWrap" Margin="15,0,15,25"/>
                 <!--Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" -->
             </StackPanel>
         </Grid>
