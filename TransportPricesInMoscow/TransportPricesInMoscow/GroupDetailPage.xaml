@@ -13,6 +13,26 @@
 
     <Page.Resources>
 
+        <DataTemplate x:Key="TicketsItemTemplate">
+            <Border Width="242" Height="242" 
+                    Background="#FFF1F1F1"
+                    BorderThickness="2" BorderBrush="#FF5F5F5F">
+                <Grid Width="242" Height="242">
+                    <StackPanel Grid.Row="0" VerticalAlignment="Top" Margin="10,10,10,0">
+                        <TextBlock Text="{Binding Title}" Foreground="Black"
+                            Style="{StaticResource CaptionTextStyle}" 
+                            Margin="15,0,15,0" MaxHeight="110"/>
+                        <TextBlock Text="{Binding Subtitle}" Foreground="Black"
+                            Style="{StaticResource SubheaderTextStyle}" 
+                            Margin="15,0,15,0" MaxHeight="50"/>
+                        <TextBlock Text="{Binding Description}" Foreground="Black" 
+                            Style="{StaticResource BodyTextStyle}" 
+                            Margin="15,10,15,0" MaxHeight="90"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
         <!-- Коллекция элементов, отображаемых на этой странице -->
         <CollectionViewSource
             x:Name="itemsViewSource"
@@ -42,21 +62,14 @@
             AutomationProperties.Name="Items In Group"
             TabIndex="1"
             Grid.RowSpan="2"
-            Padding="120,126,120,50"
+            Padding="60,126,120,50"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-            ItemTemplate="{StaticResource Standard500x130ItemTemplate}"
+            ItemTemplate="{StaticResource TicketsItemTemplate}"
             SelectionMode="None"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True"
             ItemClick="ItemView_ItemClick">
 
-            <!--<GridView.Header>
-                <StackPanel Width="480" Margin="0,4,14,0">
-                    <TextBlock Text="{Binding Subtitle}" Margin="0,0,18,20" Style="{StaticResource SubheaderTextStyle}" MaxHeight="60"/>
-                    <Image Source="{Binding Image}" Height="400" Margin="0,0,18,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                    <TextBlock Text="{Binding Description}" Margin="0,0,18,0" Style="{StaticResource BodyTextStyle}"/>
-                </StackPanel>
-            </GridView.Header>-->
             <GridView.ItemContainerStyle>
                 <Style TargetType="FrameworkElement">
                     <Setter Property="Margin" Value="52,0,0,10"/>
@@ -96,7 +109,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-            <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" IsHitTestVisible="false"/>
+            <TextBlock x:Name="pageTitle" Text="{Binding Subtitle}" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" IsHitTestVisible="false"/>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
