@@ -115,9 +115,12 @@ namespace TransportPricesInMoscow
         {
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
-            
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            try
+            {
+                var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+                this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            }
+            catch { };
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="43337m0rg0t.463260DD3E985" Publisher="CN=F7642D27-CCE9-4988-9BED-35B1F14EED65" Version="1.2.0.3" />
+  <Identity Name="43337m0rg0t.463260DD3E985" Publisher="CN=F7642D27-CCE9-4988-9BED-35B1F14EED65" Version="1.2.0.4" />
   <Properties>
     <DisplayName>Цены на общественный транспорт Москвы</DisplayName>
     <PublisherDisplayName>m0rg0t</PublisherDisplayName>
@@ -18,6 +18,10 @@
       <VisualElements DisplayName="Цены на общественный транспорт Москвы" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Цены на общественный транспорт Москвы" ForegroundText="light" BackgroundColor="#1BA0E1">
         <DefaultTile ShowName="allLogos" ShortName="Транспортные цены" />
         <SplashScreen Image="Assets\SplashScreen.png" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
       </VisualElements>
       <Extensions>
         <Extension Category="windows.search" />
