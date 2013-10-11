@@ -24,6 +24,9 @@ namespace TransportPricesWP
         {
             InitializeComponent();
 
+            App.button.IsAppBarEnabled = true;
+            App.button.Open();
+
             // Set the data context of the listbox control to the sample data
             this.Loaded += new RoutedEventHandler(MainPage_Loaded);
 
@@ -32,6 +35,8 @@ namespace TransportPricesWP
 
             this.SearchItemsList.GroupDescriptors.Add(GroupedBadgesList);
             this.SearchItemsList.SortDescriptors.Add(Sort);
+
+            
         }
 
         public GenericGroupDescriptor<PriceItem, string> GroupedBadgesList = new GenericGroupDescriptor<PriceItem, string>(item => item.GroupName);

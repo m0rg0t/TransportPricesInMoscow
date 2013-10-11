@@ -276,9 +276,41 @@ namespace TransportPricesInMoscow.Data
             }            
         }
 
+        public async Task<bool> SendStatistics()
+        {
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            string uuid1 = "";
+            try
+            {
+                uuid1 = localSettings.Values["deviceId"].ToString();
+            }
+            catch { };
+            if (uuid1 != "")
+            {
+                try
+                {
+                    var responseText = await MakeWebRequest("http://api.pub.emp.msk.ru:8081/json/v10.0/auth/device/upd?token=" + App.TOKEN + "&device_id=" + uuid1);
+                    JObject o = JObject.Parse(responseText);
+                }
+                catch { };
+            }
+            else
+            {
+                try
+                {
+                    var responseText = await MakeWebRequest("http://api.pub.emp.msk.ru:8081/json/v10.0/auth/device/reg?token=" + App.TOKEN);
+                    JObject o = JObject.Parse(responseText);
+                    string uuid = o["result"][0]["mobile_app_key_uuid"].ToString();
+                    localSettings.Values["deviceId"] = uuid;
+                }
+                catch { };
+            };
+            return true;
+        }
+
         public async void LoadTicketData()
         {
-
+            await SendStatistics();
             var responseText = await MakeWebRequest("http://api.pub.emp.msk.ru:8081/json/v10.0/transport/tickets/getallprices?token="+App.TOKEN+"&query=test"); //" + App.TOKEN);
             try
             {

@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>TransportPricesInMoscow_StoreKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>D43AB47E5F2F0FA86F13CEE34177B78E233E3C93</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>1FF3830EF5F33CBBB4458163DE90DC1C5E175DA6</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -189,6 +189,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AdDuplex.Windows">
+      <HintPath>..\packages\AdDuplexWindows.8.0.3.0\lib\winrt45\AdDuplex.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="Callisto">
       <HintPath>..\packages\Callisto.1.3.1\lib\winrt45\Callisto.dll</HintPath>
     </Reference>

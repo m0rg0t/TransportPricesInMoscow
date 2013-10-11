@@ -5,6 +5,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:data="using:TransportPricesInMoscow.Data"
+    xmlns:adduplex="using:AdDuplex.Controls"
     xmlns:common="using:TransportPricesInMoscow.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -75,6 +76,16 @@
             IsSwipeEnabled="false"
             IsItemClickEnabled="True"
             ItemClick="ItemView_ItemClick" BorderBrush="#FF595959">
+
+                    <GridView.Header>
+                        <StackPanel Width="160" Margin="0,0,60,0" VerticalAlignment="Top">
+                            <adduplex:AdControl x:Name="adDuplexAd"
+                    AppId="0a92ab9c-4d41-42b8-ab5e-4a8436aa62a1" 
+                    Size="160x600"/>
+
+                        </StackPanel>
+                    </GridView.Header>
+            
                     <!--<GridView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VariableSizedWrapGrid Orientation="Vertical"/>
@@ -117,7 +128,8 @@
                             </GroupStyle.Panel>
                         </GroupStyle>
             </GridView.GroupStyle>
-            </local:VariableSizeGridView>
+            
+                </local:VariableSizeGridView>
 
             </SemanticZoom.ZoomedInView>
             <!--ItemsSource="{Binding MainStatic.AllGroups, Source={StaticResource Locator}}"-->
