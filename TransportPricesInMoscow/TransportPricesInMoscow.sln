@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Phone
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportPricesInMoscow", "TransportPricesInMoscow\TransportPricesInMoscow.csproj", "{953DB6AE-62B0-425E-B67B-14CC37BE535C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportPricesWP", "TransportPricesWP\TransportPricesWP.csproj", "{690B1C03-D335-4F9F-81C8-5DB3C53D3B12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportPricesWP7", "TransportPricesWP\TransportPricesWP7.csproj", "{690B1C03-D335-4F9F-81C8-5DB3C53D3B12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportPricesWP8", "TransportPricesWP8\TransportPricesWP8.csproj", "{C662FE38-B901-496B-B410-824C948E2C21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,18 @@ Global
 		{690B1C03-D335-4F9F-81C8-5DB3C53D3B12}.Release|ARM.ActiveCfg = Release|Any CPU
 		{690B1C03-D335-4F9F-81C8-5DB3C53D3B12}.Release|x64.ActiveCfg = Release|Any CPU
 		{690B1C03-D335-4F9F-81C8-5DB3C53D3B12}.Release|x86.ActiveCfg = Release|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Release|ARM.ActiveCfg = Release|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Release|x64.ActiveCfg = Release|Any CPU
+		{C662FE38-B901-496B-B410-824C948E2C21}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

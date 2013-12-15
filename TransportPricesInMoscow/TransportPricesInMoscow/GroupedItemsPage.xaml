@@ -80,7 +80,7 @@
                     <GridView.Header>
                         <StackPanel Width="160" Margin="0,0,60,0" VerticalAlignment="Top">
                             <adduplex:AdControl x:Name="adDuplexAd"
-                    AppId="0a92ab9c-4d41-42b8-ab5e-4a8436aa62a1" 
+                    AppId="58859" 
                     Size="160x600"/>
 
                         </StackPanel>
