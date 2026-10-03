@@ -89,12 +89,12 @@ namespace TransportPricesWP8.ViewModel
         {
             get { return _searchQuery; }
             set { 
-                _searchQuery = value;
+                _searchQuery = value ?? String.Empty;
 
                 var items = from item in Items
-                            where item.Title.ToLower().Contains(_searchQuery.ToLower()) ||
-                                item.Price.ToLower().Contains(_searchQuery.ToLower()) ||
-                                item.Description.ToLower().Contains(_searchQuery.ToLower())
+                            where (item.Title ?? String.Empty).IndexOf(_searchQuery, StringComparison.CurrentCultureIgnoreCase) >= 0 ||
+                                (item.Price ?? String.Empty).IndexOf(_searchQuery, StringComparison.CurrentCultureIgnoreCase) >= 0 ||
+                                (item.Description ?? String.Empty).IndexOf(_searchQuery, StringComparison.CurrentCultureIgnoreCase) >= 0
                             select item;
                 ResultItems = new ObservableCollection<PriceItem>();
                 foreach (var item in items)
